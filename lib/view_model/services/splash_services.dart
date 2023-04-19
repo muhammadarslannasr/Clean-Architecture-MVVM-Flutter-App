@@ -6,19 +6,29 @@ import 'package:flutter_mvvm_clean_architecture/view_model/user_view_model.dart'
 class SplashServices {
   Future<UserModel> getUserData() => UserViewModel().getUser();
 
-  void checkAuthentication(BuildContext context)  {
-    getUserData().then((value) async => {
+  void checkAuthentication(BuildContext context) async  {
+    await getUserData().then((value)  => {
 
-      if(value.token == null ||  value.token == ''){
-        await Future.delayed(Duration(seconds: 3)),
-        Navigator.pushNamed(context, RouteName.login)
+      print('token_is: ${value.token}'),
+
+
+      if(value.token != 'null'){
+        //await Future.delayed(Duration(seconds: 3)),
+        Navigator.pushNamed(context, RouteName.home),
+        print('token Not Empty')
+
       }else{
-        await Future.delayed(Duration(seconds: 3)),
-        Navigator.pushNamed(context, RouteName.home)
+
+        //await Future.delayed(Duration(seconds: 3)),
+        Navigator.pushNamed(context, RouteName.login),
+
+        print('token Empty')
+
+
       }
 
     }).onError((error, stackTrace) => {
-
+      print('Error ${error.toString()}')
     });
   }
 }

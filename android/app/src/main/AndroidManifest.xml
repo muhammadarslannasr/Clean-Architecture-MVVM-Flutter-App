@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.flutter_mvvm_clean_architecture">
    <application
-        android:label="flutter_mvvm_clean_architecture"
+        android:label="MVVM Clean Architecture"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
