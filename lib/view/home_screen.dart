@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
             print(value.moviesList.status);
             switch (value.moviesList.status) {
               case Status.LOADING:
-                return Center(child: const CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               case Status.ERROR:
                 return Center(child: Text(value.moviesList.message.toString()));
               case Status.COMPLETED:
@@ -82,8 +82,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(Utils.averageRating(value.moviesList.data!.movies![index].ratings!).toStringAsFixed(1)),
-                              Icon(Icons.star,color: Colors.yellow,),
+                              Text(Utils.averageRating(value
+                                      .moviesList.data!.movies![index].ratings!)
+                                  .toStringAsFixed(1)),
+                              Icon(
+                                Icons.star,
+                                color: Colors.yellow,
+                              ),
                             ],
                           ),
                         ),
